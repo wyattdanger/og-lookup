@@ -1,6 +1,6 @@
 {
-    "name": "application-name"
-  , "version": "0.0.1"
+    "name": "og"
+  , "version": "0.0.2"
   , "private": true
   , "dependencies": {
       "express": "2.3.11"
