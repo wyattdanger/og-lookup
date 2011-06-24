@@ -1,13 +1,14 @@
 h1 Found #{data.length} items on #{url}
-table
-  tr
-    th Property
-    th Content
-
-  - each datum in data
+- if (data.length)
+  table
     tr
-      td #{datum[0]}
-      td #{datum[1]}
+      th Property
+      th Content
 
-h3 Again
+    - each datum in data
+      tr
+        td #{datum[0]}
+        td #{datum[1]}
+
+h3 Again?
 != partial('form.jade')
