@@ -46,24 +46,21 @@ function extractOpenGraph(url, fn) {
 // Routes
 
 app.get('/', function(req, res){
-    res.render('index', {
-        title: 'OG Parser'
-    });
-});
-
-app.get('/lookup', function(req, res){
-    res.redirect('/');
-});
-
-app.post('/lookup', function(req, res) {
-    var url = req.body.urlToCheck;
-    extractOpenGraph( url, function(data) {
-        res.render('data', {
-            title: "Results",
-            data: data,
-            url: url
+    if (req.query.url) {
+        var url = req.query.url;
+        extractOpenGraph(url, function(data) {
+            res.render('data', {
+                title: "Results",
+                data: data,
+                url: url
+            });
         });
-    });
+    
+    } else {
+        res.render('index', {
+            title: 'OG Parser'
+        });
+    }
 });
 
 var port = process.env.PORT || 3000;
