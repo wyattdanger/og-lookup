@@ -33,14 +33,12 @@ function extractOpenGraph(url, fn) {
     jsdom.env({
         html: url,
         done: function(errors, window) {
-            
             jsdom.jQueryify(window, 'http://code.jquery.com/jquery-1.4.2.min.js' , function() {
                 window.$('meta[property^=og]').each(function(i, tem) {
                     og.push([ tem.getAttribute('property'), tem.getAttribute('content')]);
                 });
                 fn(og);
             });
-
         }
     });
 }
