@@ -1,15 +1,20 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+  text-decoration: none;
 }
 
 th { text-align: left; }
 
-footer { margin-top: 50px; }
+table { outline: 1px solid #ccc; border-spacing: 0px; margin-bottom: 30px; }
+td { outline: 1px solid #eee; }
+th { outline: 1px solid #ccc; background: #eee; }
+th, td { padding: 5px 10px; }
+
+footer { margin-top: 30px; }
 
 
 
