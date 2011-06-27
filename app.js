@@ -28,14 +28,14 @@ app.configure('production', function(){
 
 // Quick and dirty 
 
-function extractOpenGraph (url, fn) {
+function extractOpenGraph(url, fn) {
     var og = [];
     jsdom.env({
         html: url,
         done: function(errors, window) {
             
             jsdom.jQueryify(window, 'http://code.jquery.com/jquery-1.4.2.min.js' , function() {
-                window.$('meta[property^=og]').each(function (i, tem) {
+                window.$('meta[property^=og]').each(function(i, tem) {
                     og.push([ tem.getAttribute('property'), tem.getAttribute('content')]);
                 });
                 fn(og);
@@ -59,7 +59,7 @@ app.get('/lookup', function(req, res){
 
 app.post('/lookup', function(req, res) {
     var url = req.body.urlToCheck;
-    extractOpenGraph( url, function (data) {
+    extractOpenGraph( url, function(data) {
         res.render('data', {
             title: "Results",
             data: data,
